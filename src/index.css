@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+} 
+.uk-button-default {
+	background: #15b89a;
+    color: white;
+    border-color: #15b89a;
+}
