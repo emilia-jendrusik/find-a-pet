@@ -8,9 +8,10 @@ class Layout extends Component {
 		this.state = {
 			petType : "none",
 			petSize : "none",
-			petAge : "none"
+			petAge : "none",
 		};
 		this.chooseType = this.chooseType.bind(this);
+		this.chooseFilter = this.chooseFilter.bind(this);
 	}
 	componentDidMount() {
 		setTimeout(function(){ 
@@ -25,7 +26,6 @@ class Layout extends Component {
 	chooseFilter(e) {
 		let newPetFilter = e.target.value;
 		let typeOfFilter = e.target.getAttribute('id');
-		console.log(typeOfFilter);
 		this.setState({[typeOfFilter] : newPetFilter });
 	}
 	render() {

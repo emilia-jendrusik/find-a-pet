@@ -6,7 +6,8 @@ class Listing extends Component {
 		super(props);
 	}
 	render() {
-		console.log("render");
+		console.log(this.props.petType);
+		//Filter by Type
 		let filterType = this.props.petType;
 		let filteredPets;
 		if (filterType == "none") {
