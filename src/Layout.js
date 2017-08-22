@@ -5,8 +5,12 @@ import Listing from "./Listing/Listing";
 class Layout extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {petType : "none"};
-		this.chooseFilter = this.chooseFilter.bind(this);
+		this.state = {
+			petType : "none",
+			petSize : "none",
+			petAge : "none"
+		};
+		this.chooseType = this.chooseType.bind(this);
 	}
 	componentDidMount() {
 		setTimeout(function(){ 
@@ -14,18 +18,24 @@ class Layout extends Component {
 			document.getElementById('loadingContent').classList.add("hidden");
 		}, 100);
 	}
-	chooseFilter(e) {
-		var newPetType = e.target.getAttribute('data-filter');
+	chooseType(e) {
+		let newPetType = e.target.getAttribute('data-filter');
 		this.setState({petType : newPetType});
+	}
+	chooseFilter(e) {
+		let newPetFilter = e.target.value;
+		let typeOfFilter = e.target.getAttribute('id');
+		console.log(typeOfFilter);
+		this.setState({[typeOfFilter] : newPetFilter });
 	}
 	render() {
 		return (
 			<div>
 				<div id="mainElem">
-					<Header onChooseFilter={this.chooseFilter} />
+					<Header onChooseType={this.chooseType} onChooseFilter={this.chooseFilter} />
 				</div>
 				<div className="petContent">
-					<Listing petsData={this.props.petsData} petType={this.state.petType}/>
+					<Listing petsData={this.props.petsData} petType={this.state.petType} petSize={this.state.petSize} petAge={this.state.petAge}/>
 				</div>
 			</div>
 		)

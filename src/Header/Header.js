@@ -9,9 +9,9 @@ class Header extends Component {
 		return (
 			<div id="headerContent">
 				<nav data-reactroot="" className="uk-navbar-container">
-					<NavBar onChooseFilter={this.props.onChooseFilter} />
+					<NavBar onChooseType={this.props.onChooseType} />
 					<SearchForm />
-					<Filters />
+					<Filters onChooseFilter={this.props.onChooseFilter}/>
 				</nav>
 			</div>
 		)
