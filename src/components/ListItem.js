@@ -15,7 +15,7 @@ class ListItem extends Component {
 						<a className="uk-button uk-button-default">Contact to adopt</a>
 					</div>
 					<div className="uk-width-1-2 image-container">
-						<img alt={this.props.name} src={"/images/" + this.props.id + ".jpg"} />
+						<img src={this.props.img} alt={this.props.name} />
 					</div>
 				</div>
 			</div>

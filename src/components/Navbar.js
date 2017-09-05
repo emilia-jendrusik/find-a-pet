@@ -6,9 +6,9 @@ class NavBar extends Component {
 			<div className="uk-navbar-item header-item">
 				<a href="" className="uk-navbar-item uk-logo"><img src={logo} /></a>
 				<ul className="uk-navbar-nav">
-					<li className="uk-parent"><a href="#" data-filter="none" onClick={this.props.onChooseType}>All</a></li>
-					<li className="uk-parent"><a href="#" data-filter="Dog" onClick={this.props.onChooseType}>Dogs</a></li>
-					<li className="uk-parent"><a href="#" data-filter="Cat" onClick={this.props.onChooseType}>Cats</a></li>
+					<li className="uk-parent"><a href="#" data-filter="none">All</a></li>
+					<li className="uk-parent"><a href="#" data-filter="Dog">Dogs</a></li>
+					<li className="uk-parent"><a href="#" data-filter="Cat">Cats</a></li>
 				</ul>
 			</div>
 		)
