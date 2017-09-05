@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './uikit.min.css';
 import './index.css';
-import Loader from './Loader';
-import Layout from './Layout';
-import registerServiceWorker from './registerServiceWorker';
+import Loader from './components/Loader';
+import Layout from './components/Layout';
 const petsData = [
   {petType: "Dog", name: "Pinky", breed: "Australian Shepherd", id: 23514, shelter: "KK58", descr: "Cute and lively doggy.", petSize: "md", petAge: "age0"},
   {petType: "Cat", name: "Rossy", breed: "American Shorthair", id: 13555, shelter: "DJ33", descr: "Lazy and easy to be with.", petSize: "sm", petAge: "age1"},
@@ -15,4 +14,3 @@ const petsData = [
 
 ReactDOM.render(<Loader />, document.getElementById('loadingContent'));
 ReactDOM.render(<Layout petsData={petsData} />, document.getElementById('bodyContent'));
-registerServiceWorker();

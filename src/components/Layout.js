@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import Header from "./Header/Header";
-import Listing from "./Listing/Listing";
+import Header from "./Header";
+import Listing from "./Listing";
 
 class Layout extends Component {
 	constructor(props) {
@@ -10,23 +10,12 @@ class Layout extends Component {
 			petSize : "none",
 			petAge : "none",
 		};
-		this.chooseType = this.chooseType.bind(this);
-		this.chooseFilter = this.chooseFilter.bind(this);
 	}
 	componentDidMount() {
 		setTimeout(function(){ 
 			document.getElementById('bodyContent').classList.remove("hidden");
 			document.getElementById('loadingContent').classList.add("hidden");
 		}, 100);
-	}
-	chooseType(e) {
-		let newPetType = e.target.getAttribute('data-filter');
-		this.setState({petType : newPetType});
-	}
-	chooseFilter(e) {
-		let newPetFilter = e.target.value;
-		let typeOfFilter = e.target.getAttribute('id');
-		this.setState({[typeOfFilter] : newPetFilter });
 	}
 	render() {
 		return (

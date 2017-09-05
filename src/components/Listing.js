@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import ListItem from "./ListItem";
-import "./Listing.css";
+
 class Listing extends Component {
 	constructor(props) {
 		super(props);

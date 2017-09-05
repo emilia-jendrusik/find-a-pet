@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import NavBar from "./Navbar";
 import SearchForm from "./SearchForm";
-import Filters from "./Filters";
-import "./Header.css";
+
 
 class Header extends Component {
 	render() {
@@ -11,7 +10,6 @@ class Header extends Component {
 				<nav data-reactroot="" className="uk-navbar-container">
 					<NavBar onChooseType={this.props.onChooseType} />
 					<SearchForm />
-					<Filters onChooseFilter={this.props.onChooseFilter}/>
 				</nav>
 			</div>
 		)
