@@ -8,6 +8,7 @@ export function fetchPets(term) {
 	const data = axios.get(url);
 	return {
 		type: FETCH_DATA,
-		payload: data
+		payload: data,
+		meta: term
 	}
 }

@@ -17,7 +17,8 @@ class SearchForm extends Component {
 	}
 	getPets(e) {
 		e.preventDefault();
-		console.log(this.props.fetchPets(this.state.term));
+		this.props.fetchPets(this.state.term);
+		this.setState({term: ''});
 	}
 	render(){
 		return(

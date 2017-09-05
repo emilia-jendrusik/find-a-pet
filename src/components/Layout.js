@@ -16,7 +16,7 @@ class Layout extends Component {
 					<Header />
 				</div>
 				<div className="petContent">
-					<Listing petsData={this.props.petsData} />
+					<Listing />
 				</div>
 			</div>
 		)

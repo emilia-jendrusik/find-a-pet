@@ -35,3 +35,15 @@ body {
 #petContent .pet-el {
 	margin-bottom: 20px;  
 }
+.like-pet, .contact-pet {
+	font-style: normal;
+	margin-left: 20px;
+    font-size: 27px;
+    cursor: pointer;
+    position: relative;
+    top: 6px;
+}
+
+.like-pet:hover, .contact-pet:hover {
+	color: #8b4098;
+}

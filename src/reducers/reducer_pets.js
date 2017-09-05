@@ -1,13 +1,13 @@
 import {FETCH_DATA} from '../actions/index';
 
-export default function(state=null, action) {
+export default function(state={data:null, term:null}, action) {
 	switch (action.type) {
 		case FETCH_DATA:
-			let data = action.payload.data.petfinder.pets;
-			if(data) {
-				return data.pet;
+			let dataEl = action.payload.data.petfinder.pets;
+			if(dataEl) {
+				return {data: dataEl.pet, term: action.meta};
 			}
-			return state;
+			return {data: null, term: action.meta};
 		default: return state
 	}
 }
