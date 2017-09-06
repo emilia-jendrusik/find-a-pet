@@ -11,7 +11,7 @@ class ListItem extends Component {
 						<h2 className='uk-margin-top'>{this.props.breed}</h2>
 						<span className='uk-margin-right'>ID: {this.props.id}</span>
 						<span>Shelter: {this.props.shelter}</span>
-						<p>Description: {this.props.descr}</p>
+						{this.props.descr && <p>Description: {this.props.descr}</p>}
 						<div>
 							<a className='uk-button uk-button-default'>Details</a>
 							<i className='like-pet'>&#10084;</i>
