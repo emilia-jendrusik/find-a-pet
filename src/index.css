@@ -25,7 +25,11 @@ body {
     margin-bottom: 30px;
 }
 .header-item {
-	height: 150px;
+	height: 175px;
+}
+.uk-navbar-item .link-container {
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 .image-container {
 	overflow: hidden; 
