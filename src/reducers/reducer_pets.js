@@ -10,6 +10,7 @@ export default function(state={data:[], term:null}, action) {
 				return {data: finalData, term: action.meta.term, newPage: newPage};
 			}
 			return {data: null, term: action.meta.term};
-		default: return state
+		default: 
+			return state
 	}
 }

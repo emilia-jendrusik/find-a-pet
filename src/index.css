@@ -32,7 +32,10 @@ body {
 }
 .pet-grid h1 {
 	color: #8b4098;
-	margin-top: 0;
+	margin-top: 0;    
+  max-height: 105px;
+  min-height: 53px;
+  overflow: hidden;
 
 }
 .pet-grid img {
