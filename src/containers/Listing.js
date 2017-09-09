@@ -17,8 +17,9 @@ class Listing extends Component {
 	render() {
 		let mappedPets;
 		let petsProp = this.props.petsState;
-		let shouldMoreButtonAppear = !_.isEmpty(petsProp.term)  && petsProp.data.length >= COUNT;
+		let shouldMoreButtonAppear = false;
 		if(petsProp.data) {
+			shouldMoreButtonAppear = !_.isEmpty(petsProp.term)  && petsProp.data.length >= COUNT;
 			mappedPets = petsProp.data.map(function(pet, i) {
 				let descr = _.isEmpty(pet.description) ? '' : pet.description.$t.trim();
 				let truncdescription = _.truncate(descr, {'length': 100,'separator': ' '});
