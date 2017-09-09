@@ -8,9 +8,9 @@ class SearchFormAdvanced extends Component {
 		return (
 			<div className='uk-width-1 uk-text-right link-container'>
 				<div className='uk-width-1'> 
-					<SearchFormSizes />
-					<SearchFormAges />
-					<SearchFormSexes />
+					<SearchFormSizes onChange={this.props.onChange} />
+					<SearchFormAges onChange={this.props.onChange}/>
+					<SearchFormSexes onChange={this.props.onChange}/>
 				</div>
 			</div>
 		)

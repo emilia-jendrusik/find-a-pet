@@ -13,6 +13,9 @@ class SearchForm extends Component {
 			term: 'barnyard',
 			termText: 'Barnyard animals',
 			breed: '',
+			age: '',
+			size: '',
+			sex: '',
 			advancedForm: false
 		}
 		this.props.fetchPetsBreeds(this.state.term);
@@ -30,12 +33,12 @@ class SearchForm extends Component {
 		this.props.fetchPetsBreeds(etar.value);
 	}
 	handleSelectChange(e) {
-		this.setState({breed: e.target.value});
+		this.setState({[e.target.getAttribute('data-handle-change')]: e.target.value});
 	}
 	getPets(e) {
 		const tState = this.state;
 		e.preventDefault();
-		this.props.fetchPets(tState.term,tState.termText,tState.breed,0);
+		this.props.fetchPets(tState.term,tState.termText,tState.breed,0, tState.size, tState.age, tState.sex);
 	}
 	breedsSelect() {
 		return this.props.breeds.map(breed => {
@@ -47,17 +50,18 @@ class SearchForm extends Component {
 		e.target.innerHTML = this.state.advancedForm ? 'More filters': 'Hide filters';
 	}
 	render(){
+		console.log(this.state);
 		return(
 			<div className='uk-navbar-item filter-item'>
 				<form className='uk-form' onSubmit={this.getPets}>
 					<SearchFormTypes value={this.state.term} onChange={this.handleChange} />
-					{this.props.breeds.length && <select className='uk-select uk-form-width-medium' value={this.state.breed} onChange={this.handleSelectChange}>
+					{this.props.breeds.length && <select className='uk-select uk-form-width-medium' value={this.state.breed} data-handle-change='breed' onChange={this.handleSelectChange}>
 						<option value=''>All breeds</option>
 						{this.breedsSelect()}
 					</select>}
 					<button className='uk-button uk-button-default'>Search</button>
 					<a className='uk-link' onClick={this.handleAdvancedClick}>More filters</a>
-					{this.state.advancedForm && <SearchFormAdvanced />}
+					{this.state.advancedForm && <SearchFormAdvanced onChange={this.handleSelectChange} />}
 				</form>
 			</div>
 		)

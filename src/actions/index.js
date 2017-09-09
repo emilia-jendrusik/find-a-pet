@@ -6,7 +6,7 @@ export const COUNT = 24;
 export const FETCH_DATA = 'FETCH_DATA';
 export const FETCH_BREEDS = 'FETCH_BREEDS';
 
-export function fetchPets(term,termText,breed,offset,prevData,size,age,sex) {
+export function fetchPets(term,termText,breed,offset,size,age,sex,prevData) {
 	prevData = prevData || 0;
 	size = size || '';
 	age = age || '';
