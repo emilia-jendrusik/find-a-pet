@@ -20,7 +20,7 @@ export default function(state={data:[], term:null}, action) {
 				} else {
 					finalData = actMeta.prevData !== 0 ? actMeta.prevData.concat(dataEl.pets.pet) : dataEl.pets.pet;
 				}
-				return {data: finalData, term: metaTerm, termText: termText, breed: metaBreed, newPage: newPage};
+				return {data: finalData, term: metaTerm, termShort: metaTermText, termText: termText, breed: metaBreed, newPage: newPage};
 			}
 			return {data: null, term: metaTerm, termText: termText, breed: metaBreed};
 		default: 

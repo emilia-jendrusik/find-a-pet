@@ -6,11 +6,13 @@ export const COUNT = 24;
 export const FETCH_DATA = 'FETCH_DATA';
 export const FETCH_BREEDS = 'FETCH_BREEDS';
 
-export function fetchPets(term,termText,breed,offset,prevData) {
-	console.log(offset);
-	const url = `${ROOT_URL}pet.find${ROOT_KEY}&count=${COUNT}&location=10008&animal=${term}&breed=${breed}&offset=${offset}`;
-	const data = axios.get(url);
+export function fetchPets(term,termText,breed,offset,prevData,size,age,sex) {
 	prevData = prevData || 0;
+	size = size || '';
+	age = age || '';
+	sex = sex || '';
+	const url = `${ROOT_URL}pet.find${ROOT_KEY}&count=${COUNT}&location=10008&animal=${term}&breed=${breed}&size=${size}&age=${age}&sex=${sex}&offset=${offset}`;
+	const data = axios.get(url);
 	return {
 		type: FETCH_DATA,
 		payload: data,

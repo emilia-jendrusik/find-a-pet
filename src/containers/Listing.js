@@ -12,7 +12,7 @@ class Listing extends Component {
 		this.morePets = this.morePets.bind(this);
 	}
 	morePets(petsProp) {
-		this.props.fetchPets(petsProp.term, petsProp.termText, petsProp.breed, parseInt(petsProp.newPage) , petsProp.data);
+		this.props.fetchPets(petsProp.term, petsProp.termShort, petsProp.breed, parseInt(petsProp.newPage) , petsProp.data);
 	}
 	render() {
 		let mappedPets;
