@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {fetchPets} from '../actions';
 import {fetchPetsBreeds} from '../actions';
 import {bindActionCreators} from 'redux';
+import SearchFormAdvanced from './SearchFormAdvanced';
+import SearchFormTypes from '../components/SearchFormTypes';
 
 class SearchForm extends Component {
 	constructor(props) {
@@ -10,13 +12,15 @@ class SearchForm extends Component {
 		this.state = {
 			term: 'barnyard',
 			termText: 'Barnyard animals',
-			breed: ''
+			breed: '',
+			advancedForm: false
 		}
 		this.props.fetchPetsBreeds(this.state.term);
 		this.getPets = this.getPets.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.breedsSelect = this.breedsSelect.bind(this);
 		this.handleSelectChange = this.handleSelectChange.bind(this);
+		this.handleAdvancedClick = this.handleAdvancedClick.bind(this);
 	}
 	handleChange(e) {
 		const etar = e.target;
@@ -38,27 +42,22 @@ class SearchForm extends Component {
 			return <option value={breed.$t} key={breed.$t}>{breed.$t}</option>
 		})
 	}
+	handleAdvancedClick(e) {
+		this.setState({advancedForm: !this.state.advancedForm});
+		e.target.innerHTML = this.state.advancedForm ? 'More filters': 'Hide filters';
+	}
 	render(){
 		return(
-			<div className='uk-navbar-item'>
+			<div className='uk-navbar-item filter-item'>
 				<form className='uk-form' onSubmit={this.getPets}>
-					<select className='uk-select uk-form-width-medium' value={this.state.term} onChange={this.handleChange}>
-						<option value='barnyard' data-text='Barnyard animals'>Barnyard animals</option>
-						<option value='bird' data-text='Birds'>Birds</option>
-						<option value='cat' data-text='Cats'>Cats</option>
-						<option value='dog' data-text='Dogs'>Dogs</option>
-						<option value='horse' data-text='Horses'>Horses</option>
-						<option value='reptile' data-text='Reptiles'>Reptiles</option>
-						<option value='smallfurry' data-text='Small animals'>Small animals</option>
-					</select>
+					<SearchFormTypes value={this.state.term} onChange={this.handleChange} />
 					{this.props.breeds.length && <select className='uk-select uk-form-width-medium' value={this.state.breed} onChange={this.handleSelectChange}>
-						<option value=''>All</option>
+						<option value=''>All breeds</option>
 						{this.breedsSelect()}
 					</select>}
 					<button className='uk-button uk-button-default'>Search</button>
-					<div className='uk-width-1 uk-text-right link-container'>
-						<a className='uk-link'>More filters</a>
-					</div>
+					<a className='uk-link' onClick={this.handleAdvancedClick}>More filters</a>
+					{this.state.advancedForm && <SearchFormAdvanced />}
 				</form>
 			</div>
 		)

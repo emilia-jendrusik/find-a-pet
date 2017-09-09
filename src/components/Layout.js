@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Header from "./Header";
-import Listing from "./Listing";
+import Listing from "../containers/Listing";
 
 class Layout extends Component {
 	componentDidMount() {

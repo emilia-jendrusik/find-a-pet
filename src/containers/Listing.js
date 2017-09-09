@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import _ from 'lodash';
-import ListItem from './ListItem';
+import ListItem from '../components/ListItem';
 import {connect} from 'react-redux';
 import {COUNT, fetchPets} from '../actions';
 import {bindActionCreators} from 'redux';
