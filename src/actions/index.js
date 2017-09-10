@@ -16,7 +16,7 @@ export function fetchPets(term,termText,breed,offset,size,age,sex,prevData) {
 	return {
 		type: FETCH_DATA,
 		payload: data,
-		meta: {term: term, termText: termText, breed: breed, prevData: prevData}
+		meta: {term: term, termText: termText, breed: breed, size: size, age: age, sex: sex, prevData: prevData}
 	}
 }
 

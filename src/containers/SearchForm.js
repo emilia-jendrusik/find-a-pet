@@ -46,8 +46,18 @@ class SearchForm extends Component {
 		})
 	}
 	handleAdvancedClick(e) {
-		this.setState({advancedForm: !this.state.advancedForm});
+		let isAdvanced = this.state.advancedForm; 
 		e.target.innerHTML = this.state.advancedForm ? 'More filters': 'Hide filters';
+		if(!isAdvanced) {
+			this.setState({advancedForm: !isAdvanced});
+		} else {
+			this.setState({
+				advancedForm: !isAdvanced,
+				age: '',
+				size: '',
+				sex: ''
+			})
+		}
 	}
 	render(){
 		console.log(this.state);
@@ -61,7 +71,7 @@ class SearchForm extends Component {
 					</select>}
 					<button className='uk-button uk-button-default'>Search</button>
 					<a className='uk-link' onClick={this.handleAdvancedClick}>More filters</a>
-					{this.state.advancedForm && <SearchFormAdvanced onChange={this.handleSelectChange} />}
+					{this.state.advancedForm && <SearchFormAdvanced onChange={this.handleSelectChange} sex={this.state.sex} age={this.state.age} size={this.state.size} />}
 				</form>
 			</div>
 		)
